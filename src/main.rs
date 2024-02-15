@@ -12,5 +12,30 @@ fn main() {
     let v:i32 = 7;
     println!("v is: {}", v); // 7
     let v:i32 = v + 1;
-    println!("v is: {}", v) // 8
+    println!("v is: {}", v); // 8
+
+    //scope
+
+    { // x is only 2 inside this scope
+        let x: i32 = 2;
+        println!("x is {}", x ); // 2
+        let v: i32 = v + 2; // can get variables from outside the scope
+        println!("x is {}", v ); //10
+    }
+    println!("x is {}", x ); // 5
+
+    {
+        let x = 4;
+        let x = "hello";
+        // work because its redefined
+
+        //x = "hello"; does not work is not redefined only value and this is nit a number
+    }
+
+    {
+        // const syntax big letters
+        // const cannot be reassigned
+        const SECONDS_IN_MINUTES: u32 = 60;
+        println!("{}", SECONDS_IN_MINUTES)
+    }
 }
